@@ -58,30 +58,16 @@ Date grouping for the Calendar screen lives in a standalone utility, keeping tha
 
 ## Architecture
 
-```
-eventat-app-frontend/
-├── API/
-│   ├── action/         # Redux thunks + Axios API calls, one file per domain
-│   ├── reducers/       # Domain reducers (auth, event, club, comment, friend)
-│   └── actionTypes.js  # Shared action type constants
-├── components/
-│   ├── Cards/          # EventCard, AltEventCard, ClubCard
-│   ├── Event Details/  # Comments, ImageSlider, DetailsFooter
-│   ├── Headers/        # Per-screen header components
-│   └── ui/             # Auth and Profile sub-components
-├── screens/
-│   ├── auth/           # LogIn, SignUp, ForgotPass
-│   ├── tabs/           # Explore, Calendar, Create, ClubList, MapPage
-│   └── *.js            # EventDetails, ClubDetails, Profile, Edit
-├── navigators/
-│   └── Tabs.js         # Bottom tab navigator configuration
-├── src/constants/      # Colors, image references
-├── utils/              # groupEventsByMonth helper
-├── App.js              # Root: Redux Provider + conditional stack navigation
-└── Configure.js        # Redux store setup
-```
+The app is organized around feature ownership and separation of concerns:
 
-Auth state determines which stack mounts at the root: no route guards, just conditional rendering. All API calls live in `API/action/`, one file per resource, so screen components contain no fetch logic.
+- `API/action/` — Redux thunks and Axios API calls, grouped by domain
+- `API/reducers/` — domain reducers for auth, events, clubs, comments, and friends
+- `screens/` — full app screens such as Explore, Calendar, Create, Map, and Profile
+- `components/` — reusable UI grouped by feature, such as cards, headers, auth UI, and profile UI
+- `navigators/` — stack and tab navigation configuration
+- `utils/` — shared helpers such as event grouping by month
+
+Auth state determines which navigation stack mounts at the root. API calls are isolated from screen components, keeping UI code focused on rendering and interaction.
 
 
 ## Screenshots
