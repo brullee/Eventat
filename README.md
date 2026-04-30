@@ -31,30 +31,21 @@ Eventat gives students one place to browse, RSVP, and track events. You can see 
 
 ## Technical Highlights
 
-**Redux + Thunk for shared state**
-Redux manages state across 6 domains (auth, events, clubs, comments, friends, attendance). Async thunks handle all side effects, keeping components free of data-fetching logic.
+### State & Data Flow
+- **Redux + Thunk** — Managed shared state across multiple domains, isolating async API logic and keeping UI components free of data-fetching concerns  
+- **Axios interceptor** — Centralized JWT injection from `expo-secure-store` into all requests, removing auth handling from UI components  
 
-**Axios interceptor for auth**
-A single interceptor injects the JWT from `expo-secure-store` into every outgoing request. Auth handling never leaks into UI components.
+### Security & Data Handling
+- **Secure token storage** — Stored JWT and user data using `expo-secure-store`, leveraging OS-level encryption  
+- **Firebase Storage uploads** — Implemented image upload flow with state managed outside Redux to avoid blocking UI  
 
-**Secure token storage**
-JWT and decoded user profile are stored in `expo-secure-store` rather than AsyncStorage, using OS-level encryption on supported devices.
+### Architecture & Code Organization
+- **Feature-based structure** — Organized components by feature (`Cards/`, `Headers/`, `ui/...`) rather than type for better maintainability  
+- **Reusable utilities** — Extracted logic like `groupEventsByMonth` into standalone helpers  
 
-**Feature-scoped component structure**
-Components are grouped by feature (`Cards/`, `Headers/`, `ui/AuthUi/`, `ui/ProfileUi/`) rather than type. Related code stays together, unrelated code stays isolated.
-
-**Hardcoded campus coordinates**
-Faculty buildings are mapped to exact GPS coordinates in the location picker. No freeform input, no bad pins on the map.
-
-**Firebase Storage for event images**
-Images are picked via `expo-image-picker`, uploaded to Firebase Storage, and stored by URL. Upload state is kept separate from Redux to avoid blocking form submission.
-
-**Responsive layout**
-Card and screen layouts use `useWindowDimensions()` with a 411px breakpoint to adapt sizing across Android device widths.
-
-**`groupEventsByMonth` utility**
-Date grouping for the Calendar screen lives in a standalone utility, keeping that logic out of the component tree.
-
+### UX & Product Decisions
+- **Structured location input** — Mapped campus buildings to fixed GPS coordinates, ensuring accurate map pins  
+- **Responsive layout** — Used `useWindowDimensions()` with breakpoints to adapt across device sizes
 
 ## Architecture
 
@@ -122,27 +113,27 @@ npx expo start
 
 Requires an Android emulator, iOS simulator, or Expo Go. Google Maps API key goes in `app.json` under `android.config.googleMaps.apiKey`. Firebase credentials go in `firebaseConfig.js` (gitignored).
 
+## My Role
 
-## My Contribution
+Primary frontend engineer responsible for the full mobile application layer.
 
-I was the primary frontend engineer, responsible for the full mobile application layer.
+### Architecture & Structure
+- Designed the component hierarchy from scratch, separating reusable primitives (cards, headers) from feature-scoped components and full screens  
+- Enforced a consistent dark theme using shared color constants  
 
-**UI architecture**: Designed the component hierarchy from scratch, separating reusable primitives (cards, headers) from feature-scoped components and full screens. Consistent dark theme enforced through a shared color constants file.
+### Navigation & App Flow
+- Built conditional root navigation (auth vs. main stack) based on persisted login state  
+- Configured bottom tab navigation with custom icons and styling  
 
-**Navigation**: Set up the conditional root navigator (auth stack vs. main stack based on persisted login state) and the bottom tab navigator with custom icons and styling.
+### State Management & API Integration
+- Implemented Redux store, domain reducers, and async thunks for all API interactions  
+- Centralized API calls through Axios with an auth interceptor and per-operation loading/error handling  
 
-**State management**: Defined all action types, wrote async thunks for every API call, and built domain reducers. Chose Redux over lighter options because auth, attendance, and profile data all affect multiple screens and needed a single source of truth.
-
-**API integration**: Wired every backend endpoint into typed action functions via the Axios instance with async auth interceptor. Loading and error states handled per-operation in each reducer.
-
-**Authentication flow**: Login, signup, and auto-login on relaunch — secure token storage, JWT decoding for profile extraction, and clean logout with store reset.
-
-**Event creation**: The multi-step Create screen covers image picking and Firebase upload, date/time selection, coordinate-mapped location picker, and form validation before POST.
-
-**Map**: Wired Google Maps to event coordinates, connected map pin taps to event detail navigation.
-
-**Calendar and filtering**: Grouped-by-month Calendar view using `groupEventsByMonth`, plus the time-based filter bar (Today/Tomorrow/Weekend/Upcoming) on the Explore screen.
-
+### Core Features
+- **Authentication** — login, signup, and auto-login using secure token storage and JWT decoding  
+- **Event creation** — multi-step flow with image upload, date/time selection, and coordinate-mapped location input  
+- **Map integration** — connected event coordinates to Google Maps with navigation to event details  
+- **Calendar & filtering** — grouped-by-month calendar and time-based filters (Today/Tomorrow/Weekend/Upcoming)
 
 ## Notes
 
