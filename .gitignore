@@ -29,7 +29,30 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
+.env.*
 .env*.local
+
+# Firebase credentials (contain live API keys — do not commit)
+firebaseConfig.js
+google-services.json
+GoogleService-Info.plist
+
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+
+# Logs
+*.log
+logs/
+
+# Editor
+.idea/
+.vscode/
+
+# Expo shared
+.expo-shared/
 
 # typescript
 *.tsbuildinfo
