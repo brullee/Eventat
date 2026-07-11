@@ -25,7 +25,7 @@ Eventat gives students one place to browse, RSVP, and track events. You can see 
 - **Club directory**: browse clubs with member count, event count, and club-specific event feeds
 - **Comments on events**: full CRUD comment system per event
 - **Social friend system**: send, accept, and reject friend requests; view friend profiles
-- **Secure token-based auth**: JWT in the OS-level secure enclave via `expo-secure-store`; auto-login on relaunch
+- **Secure token-based auth**: JWT stored in the OS-level secure enclave via `expo-secure-store`
 - **Edit events**: creators can update details post-publish
 
 
@@ -130,14 +130,16 @@ Primary frontend engineer responsible for the full mobile application layer.
 - Centralized API calls through Axios with an auth interceptor and per-operation loading/error handling  
 
 ### Core Features
-- **Authentication** — login, signup, and auto-login using secure token storage and JWT decoding  
-- **Event creation** — multi-step flow with image upload, date/time selection, and coordinate-mapped location input  
-- **Map integration** — connected event coordinates to Google Maps with navigation to event details  
+- **Auth screens** — built and styled the login/signup UI, navigation, and input handling (the underlying login/auth API was built by my teammate on the backend)
+- **Event cards & attendee tracking** — dynamic event cards with a live attendee count and profile picture previews
+- **Event creation** — multi-image upload (up to 6 images), date/time selection, and coordinate-mapped location input
+- **Image viewer** — full-screen zoom and slide-through modal for event and profile images
 - **Calendar & filtering** — grouped-by-month calendar and time-based filters (Today/Tomorrow/Weekend/Upcoming)
+- **Comments** — timestamps and profile picture display per comment
 
 ## Notes
 
-Built as a graduation project in collaboration with [Firas Hani](https://github.com/FirasHani), who developed the NestJS REST API ([backend repository](https://github.com/FirasHani/eventat-app-backend)).
+Built as a graduation project in collaboration with [Firas Hani](https://github.com/FirasHani), who developed the NestJS REST API ([backend repository](https://github.com/FirasHani/eventat-app-backend)) and also built the map integration and login/auth logic on the frontend.
 
 Selected for presentation at [NTP 2025](https://www.linkedin.com/in/abdalla-wohoush/overlay/Certifications/1965221544/treasury?profileId=ACoAAA_8wJcBnBHU-kOsS35VkzfnzjahMadEobY) and awarded [2nd place](https://www.linkedin.com/in/abdalla-wohoush/overlay/Honor/2080759075/treasury/?profileId=ACoAAA_8wJcBnBHU-kOsS35VkzfnzjahMadEobY) in the university’s graduation project competition.
 
