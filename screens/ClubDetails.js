@@ -65,7 +65,6 @@ function ClubDetails() {
     navigation.navigate(route);
   };
 
-  console.log("club name from club", club?.name);
   return (
     <StatusBarComponent>
       <View style={styles.container}>

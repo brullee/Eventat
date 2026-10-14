@@ -27,14 +27,12 @@ function CommentSection({ eventId, userImage = null }) {
 
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.commentReducer || []);
-  console.log("comments:", comments);
 
   const [inputCommentText, setInputCommentText] = useState("");
   const [visibleComments, setVisibleComments] = useState(3);
 
   useEffect(() => {
     dispatch(showComments(eventId));
-    console.log(eventId);
   }, [dispatch, eventId, comments]);
 
   const data = {

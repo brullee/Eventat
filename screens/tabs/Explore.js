@@ -18,7 +18,6 @@ export default function Explore() {
   const [activeTab, setActiveTab] = useState("Upcoming");
 
   const allEvents = useSelector((state) => state.event.events || []);
-  console.log("allEvents", allEvents);
   const fetchEvents = () => {
     dispatch(showEvents({ type: actionType.FETCH_ALL }));
   };

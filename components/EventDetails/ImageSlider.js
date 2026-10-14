@@ -34,7 +34,6 @@ function ImageSlider({ images }) {
             onPress={() => {
               setIsModalVisible(true);
               setActiveIndex(index);
-              console.log(index);
             }}
           >
             <Image

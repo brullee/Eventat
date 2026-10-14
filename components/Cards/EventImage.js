@@ -15,7 +15,6 @@ function EventImage({
   joined_users,
 }) {
   const navigation = useNavigation();
-  console.log("eventId FFFFF", eventId);
 
   return (
     <View style={styles.imageContainer}>

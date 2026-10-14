@@ -12,8 +12,8 @@ import Friends from "../components/ui/ProfileUi/Friend";
 import Colors from "../src/constants/Colors";
 import SubSectionHeader from "../components/Headers/SubSectionHeader";
 import StatusBarComponent from "../components/ui/StatusBar";
-import DetailCardSection from "../components/Event Details/DetailCardSection";
-import DetailCardSeparator from "../components/Event Details/DetailCardSeparator";
+import DetailCardSection from "../components/EventDetails/DetailCardSection";
+import DetailCardSeparator from "../components/EventDetails/DetailCardSeparator";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Profile() {
@@ -39,7 +39,6 @@ export default function Profile() {
   }, []);
 
   async function handleLogOut() {
-    console.log("delete");
     await SecureStore.deleteItemAsync("profile");
     dispatch({ type: actionType.LOGOUT });
   }

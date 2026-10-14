@@ -66,7 +66,7 @@ Auth state determines which navigation stack mounts at the root. API calls are i
 <div align="center">
   <table>
     <tr>
-      <td align="center"><img src="./docs/Exoplore%20Page.png" width="180" alt="Explore"/><br/><sub>Explore</sub></td>
+      <td align="center"><img src="./docs/Explore%20Page.png" width="180" alt="Explore"/><br/><sub>Explore</sub></td>
       <td align="center"><img src="./docs/Event%20Details/EventDetails%20Page.png" width="180" alt="Event Details"/><br/><sub>Event Details</sub></td>
       <td align="center"><img src="./docs/Event%20Details/Comment.png" width="180" alt="Comments"/><br/><sub>Comments</sub></td>
     </tr>
@@ -104,14 +104,16 @@ Auth state determines which navigation stack mounts at the root. API calls are i
 
 ## Setup & Installation
 
+Built on Expo SDK 53. The current Expo Go app no longer supports SDK 53, so run it on an Android emulator (`npx expo start`, then press `a`) or install the SDK 53 build of Expo Go from [expo.dev/go](https://expo.dev/go).
+
 ```bash
 git clone https://github.com/brullee/Eventat.git
-cd eventsApp
+cd Eventat
 npm install
 npx expo start
 ```
 
-Requires an Android emulator, iOS simulator, or Expo Go. Google Maps API key goes in `app.json` under `android.config.googleMaps.apiKey`. Firebase credentials go in `firebaseConfig.js` (gitignored).
+Copy `firebaseConfig.example.js` to `firebaseConfig.js` and fill in your Firebase credentials. The Google Maps API key goes in `app.json` under `android.config.googleMaps.apiKey`.
 
 ## My Role
 

@@ -15,7 +15,6 @@ const App = () => {
   const [selectedEvent, setSelectedEvent] = useState(null); // State for selected event
 
   const allEvents = useSelector((state) => state.event.events || []);
-  console.log(allEvents);
 
   const fetchEvents = () => {
     dispatch(showEvents({ type: actionType.FETCH_ALL }));

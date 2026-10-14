@@ -5,13 +5,13 @@ import { getStorage } from "firebase/storage"; // Import the Firebase Storage fu
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAmzZxRjM6QMFYXJqvLDWu8cWLH-K3E1cU",
-  authDomain: "spotlight-53c23.firebaseapp.com",
-  projectId: "spotlight-53c23",
-  storageBucket: "spotlight-53c23.appspot.com",
-  messagingSenderId: "1033010333489",
-  appId: "1:1033010333489:web:d4960b589b781ff0f75210",
-  measurementId: "G-L81786G3D8",
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID",
 };
 
 // Initialize Firebase

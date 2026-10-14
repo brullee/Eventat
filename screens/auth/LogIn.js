@@ -14,10 +14,8 @@ function LogIn({ navigation }) {
   const dispatch = useDispatch();
 
   async function handleLogin() {
-    console.log("Login button pressed");
     try {
-      const text = await dispatch(signin(formData));
-      console.log("Stored Profile:", text);
+      await dispatch(signin(formData));
     } catch (error) {
       console.error("Error during login:", error);
     }

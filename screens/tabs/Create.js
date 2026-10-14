@@ -197,7 +197,6 @@ const Create = () => {
     }
 
     const uploadedUrls = await uploadImages();
-    console.log("uploadedUrls", uploadedUrls);
 
     const eventData = {
       event_name: eventName,

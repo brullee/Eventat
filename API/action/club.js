@@ -7,7 +7,7 @@ export const allClubs = ()=>async(dispatch)=>{
          dispatch({type:FETCH_ALL_CLUBS,payload:data})
          return data;
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 
@@ -17,7 +17,7 @@ export const findOneClub = (id)=>async(dispatch)=>{
          dispatch({type:FETCH_ONE_CLUB,payload:data})
          return data;
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

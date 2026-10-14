@@ -7,7 +7,7 @@ export const createComment = (clubId, formData) => async (dispatch) => {
         dispatch({ type: CREATE_COMMENT, payload: data });
         return data;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -17,7 +17,7 @@ export const showComments = (clubId) => async (dispatch) => {
         dispatch({ type: FETCH_COMMENTS, payload: data });
         return data;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -27,7 +27,7 @@ export const deleteComment = (commentId) => async (dispatch) => {
         dispatch({ type: DELETE_COMMENT, payload: commentId });
         return data;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -37,7 +37,7 @@ export const updateComment = (commentId, formData) => async (dispatch) => {
         dispatch({ type: UPDATE_COMMENT, payload: data });
         return data;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 

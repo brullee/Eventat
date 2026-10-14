@@ -7,7 +7,7 @@ export const signin = (formData)=>async(dispatch)=>{
          dispatch({type:AUTH,data})
          return data;
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export const signup = (formData)=>async(dispatch)=>{
@@ -15,7 +15,7 @@ export const signup = (formData)=>async(dispatch)=>{
         const{data}=await api.signup (formData)
         dispatch({type:AUTH,data})
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

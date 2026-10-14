@@ -16,7 +16,6 @@ export default (friendState = initialState, action) => {
     switch (action.type) {
         case SHOW_PROFILE:
             // Update profile
-            console.log('Profile Reducer:', action.payload);
             return {
                
                 profile: action.payload

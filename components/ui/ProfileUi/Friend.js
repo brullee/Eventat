@@ -30,13 +30,13 @@ const Friends = () => {
   const [viewAll, setViewAll] = useState(false);
 
   const pendingRequests = useSelector(
-    (state) => state.friemdReducer.pendingRequests || []
+    (state) => state.friendReducer.pendingRequests || []
   );
   const friendsList = useSelector(
-    (state) => state.friemdReducer.friendsList || []
+    (state) => state.friendReducer.friendsList || []
   );
   const showProfiles = useSelector(
-    (state) => state.friemdReducer.profile || []
+    (state) => state.friendReducer.profile || []
   );
 
   useEffect(() => {

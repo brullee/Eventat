@@ -174,7 +174,6 @@ const Edit = ({ eventID = 3 }) => {
 
   const handleSubmit = async () => {
     const uploadedUrls = await uploadImages();
-    console.log("uploadedUrls", uploadedUrls);
 
     const eventData = {
       event_name: eventName,

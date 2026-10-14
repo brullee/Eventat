@@ -12,7 +12,6 @@ export const showProfile = () => async (dispatch) => {
     try {
         const { data } = await api.showProfile();
         dispatch({ type: SHOW_PROFILE, payload: data });
-        console.log('Profile:', data);
     } catch (error) {
         console.error('Error fetching profile:', error);
     }

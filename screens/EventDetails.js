@@ -20,8 +20,8 @@ import EventDetailsHeader from "../components/Headers/EventDetailsHeader";
 import StatusBarComponent from "../components/ui/StatusBar";
 import RefreshableScrollView from "../components/RefreshableScrollView";
 import TextDetails from "../components/TextDetails";
-import DetailCardSeparator from "../components/Event Details/DetailCardSeparator";
-import DetailCardSection from "../components/Event Details/DetailCardSection";
+import DetailCardSeparator from "../components/EventDetails/DetailCardSeparator";
+import DetailCardSection from "../components/EventDetails/DetailCardSection";
 import AttendeePictures from "../components/AttendeePictures";
 
 import {
@@ -33,9 +33,9 @@ import {
 import { findOneEvent } from "../API/action/event";
 
 import * as actionType from "../API/actionTypes";
-import CommentSection from "../components/Event Details/Comments/CommentSection";
-import EventDetailsFooter from "../components/Event Details/EventDetailsFooter";
-import ImageSlider from "../components/Event Details/ImageSlider";
+import CommentSection from "../components/EventDetails/Comments/CommentSection";
+import EventDetailsFooter from "../components/EventDetails/EventDetailsFooter";
+import ImageSlider from "../components/EventDetails/ImageSlider";
 import PosterDetails from "../components/PosterDetails";
 import * as SecureStore from "expo-secure-store";
 
@@ -90,7 +90,6 @@ function EventDetails() {
     fetchUserData();
     fetchStatus();
     setJoinState(checkIfUserJoined);
-    // console.log(oneEvent?.Date);
   }, [dispatch, oneEvent?.id, checkIfUserJoined]);
 
   function joinHandler() {

@@ -21,7 +21,6 @@ function AttendeePictures({
   const imageWidth = 34;
   const overlap = 12;
 
-  console.log("joined_users ", joined_users);
 
   let showImages = attendees;
   let showCircle = false;

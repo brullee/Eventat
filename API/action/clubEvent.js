@@ -7,7 +7,7 @@ export const showClubEvents = (clubId)=>async(dispatch)=>{
          dispatch({type:FETCH_CLUB_EVENTS,payload:data})
          return data;
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

@@ -16,7 +16,7 @@ API.interceptors.request.use(async (req) => {
       console.log('Token is missing in profile');
     }
   } catch (error) {
-    console.log('Error fetching profile:', error);
+    console.error('Error fetching profile:', error);
   }
   return req;
 });
