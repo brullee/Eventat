@@ -32,31 +32,31 @@ Eventat gives students one place to browse, RSVP, and track events. You can see 
 ## Technical Highlights
 
 ### State & Data Flow
-- **Redux + Thunk** — Managed shared state across multiple domains, isolating async API logic and keeping UI components free of data-fetching concerns  
-- **Axios interceptor** — Centralized JWT injection from `expo-secure-store` into all requests, removing auth handling from UI components  
+- **Redux + Thunk**: Managed shared state across multiple domains, isolating async API logic and keeping UI components free of data-fetching concerns  
+- **Axios interceptor**: Centralized JWT injection from `expo-secure-store` into all requests, removing auth handling from UI components  
 
 ### Security & Data Handling
-- **Secure token storage** — Stored JWT and user data using `expo-secure-store`, leveraging OS-level encryption  
-- **Firebase Storage uploads** — Implemented image upload flow with state managed outside Redux to avoid blocking UI  
+- **Secure token storage**: Stored JWT and user data using `expo-secure-store`, leveraging OS-level encryption  
+- **Firebase Storage uploads**: Implemented image upload flow with state managed outside Redux to avoid blocking UI  
 
 ### Architecture & Code Organization
-- **Feature-based structure** — Organized components by feature (`Cards/`, `Headers/`, `ui/...`) rather than type for better maintainability  
-- **Reusable utilities** — Extracted logic like `groupEventsByMonth` into standalone helpers  
+- **Feature-based structure**: Organized components by feature (`Cards/`, `Headers/`, `ui/...`) rather than type for better maintainability  
+- **Reusable utilities**: Extracted logic like `groupEventsByMonth` into standalone helpers  
 
 ### UX & Product Decisions
-- **Structured location input** — Mapped campus buildings to fixed GPS coordinates, ensuring accurate map pins  
-- **Responsive layout** — Used `useWindowDimensions()` with breakpoints to adapt across device sizes
+- **Structured location input**: Mapped campus buildings to fixed GPS coordinates, ensuring accurate map pins  
+- **Responsive layout**: Used `useWindowDimensions()` with breakpoints to adapt across device sizes
 
 ## Architecture
 
 The app is organized around feature ownership and separation of concerns:
 
-- `API/action/` — Redux thunks and Axios API calls, grouped by domain
-- `API/reducers/` — domain reducers for auth, events, clubs, comments, and friends
-- `screens/` — full app screens such as Explore, Calendar, Create, Map, and Profile
-- `components/` — reusable UI grouped by feature, such as cards, headers, auth UI, and profile UI
-- `navigators/` — stack and tab navigation configuration
-- `utils/` — shared helpers such as event grouping by month
+- `API/action/`: Redux thunks and Axios API calls, grouped by domain
+- `API/reducers/`: domain reducers for auth, events, clubs, comments, and friends
+- `screens/`: full app screens such as Explore, Calendar, Create, Map, and Profile
+- `components/`: reusable UI grouped by feature, such as cards, headers, auth UI, and profile UI
+- `navigators/`: stack and tab navigation configuration
+- `utils/`: shared helpers such as event grouping by month
 
 Auth state determines which navigation stack mounts at the root. API calls are isolated from screen components, keeping UI code focused on rendering and interaction.
 
@@ -115,32 +115,28 @@ Requires an Android emulator, iOS simulator, or Expo Go. Google Maps API key goe
 
 ## My Role
 
-Primary frontend engineer responsible for the full mobile application layer.
+I conceived and led the project, designed the app, and built the frontend screens and UI.
 
-### Architecture & Structure
-- Designed the component hierarchy from scratch, separating reusable primitives (cards, headers) from feature-scoped components and full screens  
-- Enforced a consistent dark theme using shared color constants  
+### Product & Design
+- Came up with the idea and drove product decisions from concept to a finished, presentation-ready build
+- Designed the app in Figma: user flows, wireframes, and high-fidelity mockups
+- Kept a consistent dark theme using shared color constants
 
-### Navigation & App Flow
-- Built conditional root navigation (auth vs. main stack) based on persisted login state  
-- Configured bottom tab navigation with custom icons and styling  
-
-### State Management & API Integration
-- Implemented Redux store, domain reducers, and async thunks for all API interactions  
-- Centralized API calls through Axios with an auth interceptor and per-operation loading/error handling  
-
-### Core Features
-- **Auth screens** — built and styled the login/signup UI, navigation, and input handling (the underlying login/auth API was built by my teammate on the backend)
-- **Event cards & attendee tracking** — dynamic event cards with a live attendee count and profile picture previews
-- **Event creation** — multi-image upload (up to 6 images), date/time selection, and coordinate-mapped location input
-- **Image viewer** — full-screen zoom and slide-through modal for event and profile images
-- **Calendar & filtering** — grouped-by-month calendar and time-based filters (Today/Tomorrow/Weekend/Upcoming)
-- **Comments** — timestamps and profile picture display per comment
+### Frontend Screens & UI
+- **Screens**: Explore, Calendar, Create, Edit Event, Event Details, Club List, Club Details, Club Events, Profile and friends, and the auth screens
+- **Event cards & attendee tracking**: event cards with a live attendee count and profile picture previews
+- **Slide-to-join**: a custom slide gesture for joining an event, modeled on the iOS lock-screen call answer
+- **Event creation screen**: multi-image upload (up to 6 images), date/time selection, and coordinate-mapped location input
+- **Image viewer**: paginated image slider plus a full-screen zoom and slide-through modal for event and profile images
+- **Calendar & filtering**: grouped-by-month calendar (including the `groupEventsByMonth` helper) and time-based filters (Today/Tomorrow/Weekend/Upcoming)
+- **Comments**: comment section UI with timestamps and profile pictures
+- **Auth screens**: login/signup UI and input handling (the auth logic was built by my teammate)
+- **Navigation**: bottom tab navigator with custom icons and styling, plus the main screen stack and app theme
 
 ## Notes
 
-Built as a graduation project in collaboration with [Firas Hani](https://github.com/FirasHani), who developed the NestJS REST API ([backend repository](https://github.com/FirasHani/eventat-app-backend)) and also built the map integration and login/auth logic on the frontend.
+Built as a graduation project. [Firas Hani](https://github.com/FirasHani) developed the NestJS REST API ([backend repository](https://github.com/FirasHani/eventat-app-backend)) and also built the map integration and login/auth logic on the frontend. Firas also wrote the Redux state layer (store, reducers, thunks), the Axios API layer with its auth interceptor, and the auth-based switch between the login and main navigation stacks. [Zena Nusair](https://github.com/ZenaNusair) contributed to the frontend early in the project.
 
 Selected for presentation at [NTP 2025](https://www.linkedin.com/in/abdalla-wohoush/overlay/Certifications/1965221544/treasury?profileId=ACoAAA_8wJcBnBHU-kOsS35VkzfnzjahMadEobY) and awarded [2nd place](https://www.linkedin.com/in/abdalla-wohoush/overlay/Honor/2080759075/treasury/?profileId=ACoAAA_8wJcBnBHU-kOsS35VkzfnzjahMadEobY) in the university’s graduation project competition.
 
-The frontend was integrated and tested against the deployed backend during development.
+The app was completed as a presentation-ready build and was not released publicly. The frontend was integrated and tested against the deployed backend during development.
